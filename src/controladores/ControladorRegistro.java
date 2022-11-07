@@ -24,13 +24,16 @@ public class ControladorRegistro {
         ControladorApp.inicio();
     }
 
-    public static void btn_registrar() {
+    public static void btn_registrar() { //Logica de registro
+        
         String nameUser = vista.getRname().getText();
         String surnameUser = vista.getRApellido().getText();
         String emailUser = vista.getRemail().getText();
         String passUser = vista.getTpass().getText();
 
-        if (vista.getRname().getText().equals("") || (vista.getRApellido().getText().equals("")) || (vista.getRemail().getText().equals(""))|| (vista.getTpass().getText().equals(""))){
+      //  System.out.println(nameUser + " " + surnameUser + " " + emailUser + " " + passUser);
+
+        if (vista.getRname().getText().equals("") || (vista.getRApellido().getText().equals("")) || (vista.getRemail().getText().equals("")) || (vista.getTpass().getText().equals(""))) {
             JOptionPane.showMessageDialog(vista, "Debe llenar todos los campos \n", "AVISO!", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         } else {
             userModel u = new userModel(nameUser, emailUser, surnameUser, passUser);
@@ -40,7 +43,7 @@ public class ControladorRegistro {
             limpiar();
         }
     }
-
+    
     public static void limpiar() {
         vista.getTpass().setText("");
         vista.getRemail().setText("");
