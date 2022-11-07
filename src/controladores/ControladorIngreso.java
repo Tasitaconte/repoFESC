@@ -1,5 +1,6 @@
 
 package controladores;
+
 import vista.VistaIngreso;
 public class ControladorIngreso {
     
@@ -12,4 +13,8 @@ public class ControladorIngreso {
         v.setVisible(false);
     }
     
+     public static void btn_back() {
+        ControladorIngreso.cerrar();
+        ControladorApp.inicio();
+    }
 }

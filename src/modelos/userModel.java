@@ -12,11 +12,10 @@ public class userModel {
 
     private String userPassword;
 
-    public userModel(int id, String userName, String userEmail, String userSurname, String userPassword) {
-        this.id = id;
+    public userModel(String userName, String userSurname, String userEmail, String userPassword) {
         this.userName = userName;
-        this.userEmail = userEmail;
         this.userSurname = userSurname;
+        this.userEmail = userEmail;
         this.userPassword = userPassword;
     }
 

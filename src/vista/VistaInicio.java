@@ -25,18 +25,18 @@ public class VistaInicio extends javax.swing.JFrame {
 
         btnRegister.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         btnRegister.setText("REGISTRAR");
-        btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRegisterMouseClicked(evt);
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
             }
         });
         jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 270, 70));
 
         btnIngreso.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         btnIngreso.setText("INICIAR SESIÓN");
-        btnIngreso.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnIngresoMouseClicked(evt);
+        btnIngreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresoActionPerformed(evt);
             }
         });
         jPanel1.add(btnIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 270, 70));
@@ -62,14 +62,20 @@ public class VistaInicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
-        controladores.ControladorApp.btnRegister();
-    }//GEN-LAST:event_btnRegisterMouseClicked
-
-    private void btnIngresoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresoMouseClicked
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new VistaInicio().setVisible(true);
+            }
+        });
+    }
+    private void btnIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresoActionPerformed
         controladores.ControladorApp.btnIngreso();
-    }//GEN-LAST:event_btnIngresoMouseClicked
+    }//GEN-LAST:event_btnIngresoActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        controladores.ControladorApp.btnRegister();
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

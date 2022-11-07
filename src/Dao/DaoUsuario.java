@@ -10,7 +10,7 @@ public class DaoUsuario extends conexionSQL implements IDaoUsuario {
         String sql = "INSERT INTO " + env.T_USER + "("
                 + env.NAME_USER + ","
                 + env.SURNAME_USER + ","
-                + env.PASSWORD + "," + env.EMAIL_USER + ") VALUES(?,?,MD5(?),?)";
+                +env.EMAIL_USER + "," + env.PASSWORD  + ") VALUES(?,?,?,?)";
         try {
             PreparedStatement ps = getConnection().prepareStatement(sql);
             ps.setString(1, usuario.getUserName());
