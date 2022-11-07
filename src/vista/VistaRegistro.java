@@ -1,10 +1,13 @@
-
 package vista;
+
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 public class VistaRegistro extends javax.swing.JFrame {
 
     public VistaRegistro() {
         initComponents();
+        setTitle("REGISTRO");
     }
 
     @SuppressWarnings("unchecked")
@@ -71,6 +74,11 @@ public class VistaRegistro extends javax.swing.JFrame {
         Bregister.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         Bregister.setText("REGISTRAR");
         Bregister.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Bregister.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BregisterMouseClicked(evt);
+            }
+        });
         jPanel1.add(Bregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 200, 50));
 
         Bback.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -104,7 +112,24 @@ public class VistaRegistro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BbackActionPerformed
 
- 
+    private void BregisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BregisterMouseClicked
+        controladores.ControladorRegistro.btn_registrar();
+    }//GEN-LAST:event_BregisterMouseClicked
+
+    public JTextField getRApellido() {
+        return RApellido;
+    }
+    public JTextField getRemail() {
+        return Remail;
+    }
+    public JTextField getRname() {
+        return Rname;
+    }
+    public JPasswordField getTpass() {
+        return Tpass;
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Bback;
     private javax.swing.JButton Bregister;

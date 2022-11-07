@@ -1,12 +1,11 @@
-
 package modelos;
 
 public class ProgramaModel {
 
     private int idPrograma;
-    
+
     private String namePrograma;
-    
+
     private String codePrograma;
 
     public ProgramaModel(int idPrograma, String namePrograma, String codePrograma) {
@@ -38,6 +37,5 @@ public class ProgramaModel {
     public void setCodePrograma(String codePrograma) {
         this.codePrograma = codePrograma;
     }
-    
-}
 
+}
