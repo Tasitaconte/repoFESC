@@ -6,7 +6,7 @@ import modelos.userModel;
 
 public class DaoUsuario extends conexionSQL implements IDaoUsuario {
     @Override
-    public boolean createUser(userModel usuario) {
+    public void createUser(userModel usuario) {
         String sql = "INSERT INTO " + env.T_USER + "("
                 + env.NAME_USER + ","
                 + env.SURNAME_USER + ","
@@ -20,11 +20,11 @@ public class DaoUsuario extends conexionSQL implements IDaoUsuario {
             ps.executeUpdate();
 
             System.out.println("Creado con exito");
-            return true;
+           
 
         } catch (SQLException e) {
             System.out.println("Error al crear " + e.getMessage());
-            return false;
+           
         } finally {
             try {
                 getConnection().close();
