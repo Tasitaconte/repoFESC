@@ -6,15 +6,16 @@ public class env {
     public static final String USER = "root";
     public static final String PASSWORD = "";
     public static final String DATABASE = "vaar";
-    public static final String HOST = "jdbc:mysql://localhost";
+    public static final String HOST = "jdbc:mysql://localhost/";
 
     //TABLA USER
-    public static String T_USER;
+    public static String T_USER = "user";
     
-    public static int ID_USER;
-    public static String NAME_USER;
-    public static String SURNAME_USER;
-    public static String EMAIL_USER;
+    public static String ID_USER = "id_user";
+    public static String NAME_USER = "name_user";
+    public static String SURNAME_USER ="surname_user";
+    public static String EMAIL_USER = "email_user";
+    public static String PASSWORD_USER = "password_user";
 
     //TABLA ROL
     public static String T_ROL;

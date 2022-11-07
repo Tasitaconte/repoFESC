@@ -1,13 +1,10 @@
 package controladores;
+
 import vista.VistaInicio;
 
 public class ControladorApp {
 
-    public static VistaInicio vista = new VistaInicio();
-
-    public ControladorApp() {
-
-    }
+    static VistaInicio vista = new VistaInicio();
 
     public static void inicio() {
         vista.setVisible(true);
@@ -18,7 +15,7 @@ public class ControladorApp {
     }
 
     public static void btnIngreso() {
-        ControladorApp.cerrar();
+       ControladorApp.cerrar();
        ControladorIngreso.inicio();
     }
 
@@ -26,5 +23,4 @@ public class ControladorApp {
         ControladorApp.cerrar();
         ControladorRegistro.inicio();
     }
-
 }

@@ -1,19 +1,18 @@
-
 package controladores;
 
 import vista.VistaIngreso;
+
 public class ControladorIngreso {
-    
-    public static VistaIngreso v = new VistaIngreso();
-    
-    public static void inicio(){
+
+    static VistaIngreso v = new VistaIngreso();
+
+    public static void inicio() {
         v.setVisible(true);
     }
-    public static void cerrar(){
+    public static void cerrar() {
         v.setVisible(false);
     }
-    
-     public static void btn_back() {
+    public static void btn_back() {
         ControladorIngreso.cerrar();
         ControladorApp.inicio();
     }

@@ -12,51 +12,48 @@ public class userModel {
 
     private String userPassword;
 
-    public userModel(String userName, String userSurname, String userEmail, String userPassword) {
-        this.userName = userName;
-        this.userSurname = userSurname;
-        this.userEmail = userEmail;
-        this.userPassword = userPassword;
+    public userModel() {
+
     }
 
-    public int getId() {
-        return id;
+    public userModel(String userName, String userEmail, String userSurname, String userPassword) {
+
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userSurname = userSurname;
+        this.userPassword = userPassword;
     }
 
     public String getUserName() {
         return userName;
     }
 
-    public String getUserSurname() {
-        return userSurname;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getUserEmail() {
         return userEmail;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String getUserSurname() {
+        return userSurname;
     }
 
     public void setUserSurname(String userSurname) {
         this.userSurname = userSurname;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
 }

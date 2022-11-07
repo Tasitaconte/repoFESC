@@ -1,23 +1,12 @@
 package controladores;
 
-import Dao.DaoUsuario;
-import Dao.IDaoUsuario;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import Dao.conexionSQL;
 import modelos.userModel;
 import vista.VistaRegistro;
 
 public class ControladorRegistro {
 
-    private static JOptionPane j;
-    private static IDaoUsuario iDaoUsuario;
-
-    public ControladorRegistro() {
-        this.j = new JOptionPane();
-        this.iDaoUsuario = new DaoUsuario();
-    }
-
-    public static VistaRegistro vista = new VistaRegistro();
+    static VistaRegistro vista = new VistaRegistro();
 
     public static void inicio() {
         vista.setVisible(true);
@@ -28,20 +17,28 @@ public class ControladorRegistro {
     }
 
     public static void btn_back() {
-        cerrar();
+        ControladorRegistro.cerrar();
         ControladorApp.inicio();
     }
 
     public static void btn_registrar() {
-        String userName = vista.getRname().getText();
-        String userSurname = vista.getRApellido().getText();
-        String userEmail = vista.getRemail().getText();
-        String userPassword = vista.getTpass().getText();
+        String nameUser = vista.getRname().getText();
+        String surnameUser = vista.getRApellido().getText();
+        String emailUser = vista.getRemail().getText();
+        String passUser = vista.getTpass().getText();
+
+        System.out.println(nameUser + " " + surnameUser + " " + emailUser + " " + passUser + " se registro");
+
+        userModel u = new userModel();
+
+        u.setUserName(nameUser);
+        u.setUserSurname(surnameUser);
+        u.setUserEmail(emailUser);
+        u.setUserPassword(passUser);
         
-        System.out.println(userName+ " "+ userSurname + " " + userEmail + " "+ userPassword);
+        conexionSQL db = new conexionSQL();
         
-        userModel usuario = new userModel(userName, userEmail, userSurname, userPassword);
-        System.out.println(usuario);
-        /*iDaoUsuario.createUser(usuario);*/
+        db.crearUsuario(u);
+
     }
 }
