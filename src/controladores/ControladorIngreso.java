@@ -2,6 +2,8 @@ package controladores;
 
 import Dao.DaoUsuario;
 import Dao.IDaoUsuario;
+import static controladores.ControladorRegistro.vista;
+import javax.swing.JOptionPane;
 import modelos.userModel;
 import vista.VistaIngreso;
 
@@ -28,9 +30,11 @@ public class ControladorIngreso {
         String Pass = v.getiPass().getText();
         
         if(!validacion(correo, Pass)){
-            System.out.println("intente de nuevo");
+            limpiar();
+            JOptionPane.showMessageDialog(vista, "DATOS INCORRECTOS VUELVA A INTENTAR \n", "AVISO!", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }else{
-            System.out.println("entra");
+            ControladorIngreso.cerrar();
+            ControladorIntermedio.inicio();
         }
     }
     
@@ -39,5 +43,9 @@ public class ControladorIngreso {
         IDaoUsuario iDaoUsuario = new DaoUsuario();
         return iDaoUsuario.Dingreso(u);
     }
-
+     
+    public static void limpiar() {
+        v.getiCorreo().setText("");
+        v.getiPass().setText("");
+    }
 }
