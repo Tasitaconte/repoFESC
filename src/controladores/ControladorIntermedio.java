@@ -14,5 +14,4 @@ public class ControladorIntermedio {
         vista.setVisible(false);
     }
     
-    
 }

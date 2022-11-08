@@ -2,3 +2,5 @@ nbproject/
 *.xml
 *.mf
 test/
+/dist/
+dist/
