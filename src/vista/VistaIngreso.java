@@ -1,5 +1,8 @@
 package vista;
 
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 public class VistaIngreso extends javax.swing.JFrame {
 
     public VistaIngreso() {
@@ -13,10 +16,10 @@ public class VistaIngreso extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        iCorreo = new javax.swing.JTextField();
+        iPass = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnInicio = new javax.swing.JButton();
         Bback = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -35,26 +38,26 @@ public class VistaIngreso extends javax.swing.JFrame {
         jLabel2.setText("CONTRASEÑA");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 510, -1));
+        iCorreo.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jPanel1.add(iCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 510, -1));
 
-        jPasswordField1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 510, -1));
+        iPass.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jPanel1.add(iPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 510, -1));
 
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel3.setText("CORREO");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(12, 183, 242));
-        jButton1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jButton1.setText("INICIAR SESIÓN");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnInicio.setBackground(new java.awt.Color(12, 183, 242));
+        btnInicio.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        btnInicio.setText("INICIAR SESIÓN");
+        btnInicio.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 210, 50));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 210, 50));
 
         Bback.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         Bback.setText("VOLVER");
@@ -93,18 +96,26 @@ public static void main(String args[]) {
         controladores.ControladorIngreso.btn_back();
     }//GEN-LAST:event_BbackActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+        controladores.ControladorIngreso.ingreso();
+    }//GEN-LAST:event_btnInicioActionPerformed
+
+    public JTextField getiCorreo() {
+        return iCorreo;
+    }
+
+    public JPasswordField getiPass() {
+        return iPass;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Bback;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnInicio;
+    private javax.swing.JTextField iCorreo;
+    private javax.swing.JPasswordField iPass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

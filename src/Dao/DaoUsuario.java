@@ -1,6 +1,7 @@
 package Dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import modelos.userModel;
 
@@ -32,5 +33,28 @@ public class DaoUsuario extends conexionSQL implements IDaoUsuario {
                 System.out.println("Error al cerrar la conexion " + e.getMessage());
             }
         }
+    }
+
+    @Override
+    public boolean Dingreso(userModel usuario) {
+        //ArrayList<userModel> arrayListDingreso = new ArrayList<>();
+        String sql = "SELECT user.email_user, user.password_user FROM `user` WHERE user.email_user ='" + usuario.getUserEmail() + "' and user.password_user='" + usuario.getUserPassword() + "'";
+        try {
+            PreparedStatement ps = getConnection().prepareStatement(sql);
+            ResultSet resultSet = ps.executeQuery();
+
+            if (resultSet.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al leer los datos " + e.getMessage());
+        } finally {
+            try {
+                getConnection().close();
+            } catch (SQLException e) {
+                System.out.println("Error al cerrar la conexion " + e);
+            }
+        }
+        return false;
     }
 }

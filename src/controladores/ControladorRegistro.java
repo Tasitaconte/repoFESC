@@ -31,8 +31,6 @@ public class ControladorRegistro {
         String emailUser = vista.getRemail().getText();
         String passUser = vista.getTpass().getText();
 
-      //  System.out.println(nameUser + " " + surnameUser + " " + emailUser + " " + passUser);
-
         if (vista.getRname().getText().equals("") || (vista.getRApellido().getText().equals("")) || (vista.getRemail().getText().equals("")) || (vista.getTpass().getText().equals(""))) {
             JOptionPane.showMessageDialog(vista, "Debe llenar todos los campos \n", "AVISO!", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         } else {
