@@ -1,7 +1,11 @@
 package vista;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class VistaRegistro extends javax.swing.JFrame {
 

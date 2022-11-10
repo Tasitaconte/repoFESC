@@ -1,5 +1,10 @@
 package vista;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 public class VistaInicio extends javax.swing.JFrame {
 
     public VistaInicio() {

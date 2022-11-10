@@ -10,10 +10,10 @@ public class env {
 
     //TABLA USER
     public static String T_USER = "user";
-    
+
     public static String ID_USER = "id_user";
     public static String NAME_USER = "name_user";
-    public static String SURNAME_USER ="surname_user";
+    public static String SURNAME_USER = "surname_user";
     public static String EMAIL_USER = "email_user";
     public static String PASSWORD_USER = "password_user";
 
@@ -37,9 +37,14 @@ public class env {
     public static String CODE_PROGRAMA;
 
     //TABLA PRUEBA
-    public static String PRUEBA;
+    public static String PRUEBA = "pruebacsvtest";
 
     public static int ID_PRUEBA;
-    public static String NAME_PRUEBA;
-    public static String DETAIL_PRUEBA;
+    public static String REGISTRO = "REGISTRO";
+    public static String PERIODO = "PERIODO";
+    public static String IDENTIFICACION = "IDENTIFICACION";
+    public static String NOMBRE = "NOMBRE";
+    public static String COMUNICACION_ESCRITA = "COMUNICACION_ESCRITA";
+
+    //Tabla pruebaCSV
 }

@@ -12,7 +12,7 @@ public class DaoUsuario extends conexionSQL implements IDaoUsuario {
         String sql = "INSERT INTO " + env.T_USER + "("
                 + env.NAME_USER + ","
                 + env.SURNAME_USER + ","
-                + env.EMAIL_USER + "," + env.PASSWORD_USER + ") VALUES(?,?,?,?)";
+                + env.EMAIL_USER + "," + env.PASSWORD_USER + ") VALUES (?,?,?,?)";
         try {
             PreparedStatement ps = getConnection().prepareStatement(sql);
             ps.setString(1, usuario.getUserName());
@@ -37,8 +37,7 @@ public class DaoUsuario extends conexionSQL implements IDaoUsuario {
 
     @Override
     public boolean Dingreso(userModel usuario) {
-        //ArrayList<userModel> arrayListDingreso = new ArrayList<>();
-        String sql = "SELECT user.email_user, user.password_user FROM `user` WHERE user.email_user ='" + usuario.getUserEmail() + "' and user.password_user='" + usuario.getUserPassword() + "'";
+        String sql = "SELECT " + env.T_USER + "." + env.EMAIL_USER + "," + env.T_USER + "." + env.PASSWORD_USER + " FROM " + env.T_USER + " WHERE user.email_user ='" + usuario.getUserEmail() + "' and user.password_user='" + usuario.getUserPassword() + "'";
         try {
             PreparedStatement ps = getConnection().prepareStatement(sql);
             ResultSet resultSet = ps.executeQuery();
