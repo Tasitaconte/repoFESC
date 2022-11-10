@@ -1,4 +1,3 @@
-
 package Dao;
 
 import com.csvreader.CsvReader;
@@ -19,7 +18,7 @@ public class DaoCarga extends conexionSQL implements IDaoCarga {
                 + env.PERIODO + "," + env.IDENTIFICACION + "," + env.NOMBRE + ","
                 + env.COMUNICACION_ESCRITA + ") VALUES (?, ?, ?, ?, ?)";
         try {
-            try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
+            try ( PreparedStatement ps = getConnection().prepareStatement(sql)) {
                 for (int i = 0; i < pruebas.size(); i++) {
                     ps.setString(1, pruebas.get(i).getRegistro());
                     ps.setString(2, pruebas.get(i).getPeriodo());
@@ -42,6 +41,7 @@ public class DaoCarga extends conexionSQL implements IDaoCarga {
         }
         return false;
     }
+
     @Override
     public List<PruebaModel> importarcsv(String x) {
         List<PruebaModel> usuarios = new ArrayList<>();
