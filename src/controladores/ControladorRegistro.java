@@ -37,9 +37,10 @@ public class ControladorRegistro {
         } else {
             userModel u = new userModel(nameUser, emailUser, surnameUser, passUser);
             IDaoUsuario iDaoUsuario = new DaoUsuario();
-            iDaoUsuario.createUser(u);
-            JOptionPane.showMessageDialog(vista, "REGISTRADO CORRECTAMENTE \n", "AVISO!", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            limpiar();
+            if (iDaoUsuario.createUser(u)) {
+                JOptionPane.showMessageDialog(vista, "Usuario Creado \n", "AVISO!", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                limpiar();
+            }
         }
     }
 

@@ -31,7 +31,6 @@ public class ControladorIngreso {
         String correo = v.getiCorreo().getText();
         String Pass = mEnconder.ecnode(v.getiPass().getText());
         
-        //System.out.println(Passd);
         if(!validacion(correo, Pass)){
             limpiar();
             JOptionPane.showMessageDialog(vista, "DATOS INCORRECTOS VUELVA A INTENTAR \n", "AVISO!", javax.swing.JOptionPane.INFORMATION_MESSAGE);

@@ -40,7 +40,6 @@ public class ControladorIntermedio {
     //obtiene la ruta del archivo
     public static String btnObtencion() {
         boolean activado = true;
-
         do {
             JFileChooser chooser = new JFileChooser();
             chooser.setFileFilter(filter);
@@ -58,7 +57,6 @@ public class ControladorIntermedio {
                 activado = !activado;
             }
         } while (activado);
-
         return null;
     }
 
