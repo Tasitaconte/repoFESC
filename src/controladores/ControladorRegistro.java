@@ -3,12 +3,13 @@ package controladores;
 import Dao.DaoUsuario;
 import Dao.IDaoUsuario;
 import javax.swing.JOptionPane;
-import Dao.conexionSQL;
+import clases.encoder;
 import modelos.userModel;
 import vista.VistaRegistro;
 
 public class ControladorRegistro {
 
+    static encoder mEnconder = new encoder();
     static VistaRegistro vista = new VistaRegistro();
 
     public static void inicio() {
@@ -25,11 +26,11 @@ public class ControladorRegistro {
     }
 
     public static void btn_registrar() { //Logica de registro
-        
+
         String nameUser = vista.getRname().getText();
         String surnameUser = vista.getRApellido().getText();
         String emailUser = vista.getRemail().getText();
-        String passUser = vista.getTpass().getText();
+        String passUser = mEnconder.ecnode(vista.getTpass().getText().trim());
 
         if (vista.getRname().getText().equals("") || (vista.getRApellido().getText().equals("")) || (vista.getRemail().getText().equals("")) || (vista.getTpass().getText().equals(""))) {
             JOptionPane.showMessageDialog(vista, "Debe llenar todos los campos \n", "AVISO!", javax.swing.JOptionPane.INFORMATION_MESSAGE);
@@ -41,7 +42,7 @@ public class ControladorRegistro {
             limpiar();
         }
     }
-    
+
     public static void limpiar() {
         vista.getTpass().setText("");
         vista.getRemail().setText("");

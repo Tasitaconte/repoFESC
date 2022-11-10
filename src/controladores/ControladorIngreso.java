@@ -2,6 +2,7 @@ package controladores;
 
 import Dao.DaoUsuario;
 import Dao.IDaoUsuario;
+import clases.encoder;
 import static controladores.ControladorRegistro.vista;
 import javax.swing.JOptionPane;
 import modelos.userModel;
@@ -10,6 +11,7 @@ import vista.VistaIngreso;
 public class ControladorIngreso {
 
     static VistaIngreso v = new VistaIngreso();
+    static encoder mEnconder = new encoder();
 
     public static void inicio() {
         v.setVisible(true);
@@ -27,8 +29,9 @@ public class ControladorIngreso {
     public static void ingreso() {
 
         String correo = v.getiCorreo().getText();
-        String Pass = v.getiPass().getText();
+        String Pass = mEnconder.ecnode(v.getiPass().getText());
         
+        //System.out.println(Passd);
         if(!validacion(correo, Pass)){
             limpiar();
             JOptionPane.showMessageDialog(vista, "DATOS INCORRECTOS VUELVA A INTENTAR \n", "AVISO!", javax.swing.JOptionPane.INFORMATION_MESSAGE);

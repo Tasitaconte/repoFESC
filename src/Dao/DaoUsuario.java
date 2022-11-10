@@ -1,5 +1,6 @@
 package Dao;
 
+import clases.encoder;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +12,7 @@ public class DaoUsuario extends conexionSQL implements IDaoUsuario {
     public void createUser(userModel usuario) {
         String sql = "INSERT INTO " + env.T_USER + "("
                 + env.NAME_USER + ","
-                + env.SURNAME_USER + ","+ env.EMAIL_USER + "," + env.PASSWORD_USER + ") VALUES(?,?,?,MD5(?))";
+                + env.SURNAME_USER + "," + env.EMAIL_USER + "," + env.PASSWORD_USER + ") VALUES (?, ?, ?,?)";
 
         try {
             PreparedStatement ps = getConnection().prepareStatement(sql);
@@ -37,7 +38,8 @@ public class DaoUsuario extends conexionSQL implements IDaoUsuario {
 
     @Override
     public boolean Dingreso(userModel usuario) {
-        String sql = "SELECT " + env.T_USER + "." + env.EMAIL_USER + "," + env.T_USER + "." + env.PASSWORD_USER + " FROM " + env.T_USER + " WHERE user.email_user ='" + usuario.getUserEmail() + "' and user.password_user='" + usuario.getUserPassword() + "'";
+        encoder mEnconder = new encoder();
+        String sql = "SELECT " + env.T_USER + "." + env.EMAIL_USER + "," + env.T_USER + "." + env.PASSWORD_USER + " FROM " + env.T_USER + " WHERE user.email_user='"+usuario.getUserEmail()+"' and user.password_user='"+usuario.getUserPassword()+"'";
         try {
             PreparedStatement ps = getConnection().prepareStatement(sql);
             ResultSet resultSet = ps.executeQuery();
