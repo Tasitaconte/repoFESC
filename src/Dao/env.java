@@ -30,6 +30,10 @@ public class env {
     //TABLA DATOS PRUEBA
     public static String PRUEBA = "datosprueba";
     public static String ID_PRUEBA = "id_Dprueba";
+    public static String REGISTRO = "registro";
+    public static String PERIODO = "periodo";
+    public static String IDENTIFICACION = "identificacion";
+    public static String NOMBRE = "nombre";
     public static String COMUNICACION_ESCRITA = "comunicacion_escrita";
     public static String RAZONAMIENTO_CUANTITATIVO = "razonamiento_cuantitativo";
     public static String LECTURA_CRITICA = "lectura_critica";

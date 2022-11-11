@@ -64,16 +64,24 @@ public class ControladorIntermedio {
         IDaoCarga iDaoCarga = new DaoCarga();
         JFileChooser chooser = new JFileChooser();
 
-        if (iDaoCarga.insertarMySQL(iDaoCarga.importarcsv(btnObtencion(), getPrueba()))) {
-            JOptionPane.showMessageDialog(chooser, "Datos Cargados");
-            limpiar();
+        if (getPrueba() == 0 || getPrograma() == 0) {
+            JOptionPane.showMessageDialog(chooser, "Seleccione el programa o prueba");
         } else {
-            JOptionPane.showMessageDialog(chooser, "Fallo a la hora de guardar intente de nuevo");
-            limpiar();
+            if (iDaoCarga.insertarMySQL(iDaoCarga.importarcsv(btnObtencion(), getPrueba(), getPrograma()))) {
+                JOptionPane.showMessageDialog(chooser, "Datos Cargados");
+                limpiar();
+            } else {
+                JOptionPane.showMessageDialog(chooser, "Fallo a la hora de guardar intente de nuevo");
+                limpiar();
+            }
         }
 
     }
 
+    public static void table(){
+ 
+    }
+    
     //obtiene la ruta del archivoCSV
     public static String btnObtencion() {
         JFileChooser chooser = new JFileChooser();

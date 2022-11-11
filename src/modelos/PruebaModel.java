@@ -2,26 +2,73 @@ package modelos;
 
 public class PruebaModel {
 
-    private int idPrueba, idTest, comunicacion_escrita,
+    private int idPrueba, idTest, idPrograma, comunicacion_escrita,
             razonamiento_cuantitativo,
             lectura_critica,
             competencias_ciudadanas,
             ingles;
-    private String nivel, nameTest;
+    private String nivel, nameTest, registro,
+            periodo,
+            identificacion,
+            nombre;
 
     public PruebaModel() {
 
     }
 
-    public PruebaModel(int idTest,int comunicacion_escrita, int razonamiento_cuantitativo, int lectura_critica, int competencias_ciudadanas, int ingles, String nivel) {
+    public PruebaModel(int idTest, int idPrograma,String registro, String periodo, String identificacion, String nombre ,int comunicacion_escrita, int razonamiento_cuantitativo, int lectura_critica, int competencias_ciudadanas, int ingles, String nivel) {
         this.idTest = idTest;
-
+        this.idPrograma = idPrograma;
+        this.registro = registro;
+        this.periodo = periodo;
+        this.identificacion = identificacion;
+        this.nombre = nombre;
         this.comunicacion_escrita = comunicacion_escrita;
         this.razonamiento_cuantitativo = razonamiento_cuantitativo;
         this.lectura_critica = lectura_critica;
         this.competencias_ciudadanas = competencias_ciudadanas;
         this.ingles = ingles;
         this.nivel = nivel;
+    }
+
+    public String getRegistro() {
+        return registro;
+    }
+
+    public void setRegistro(String registro) {
+        this.registro = registro;
+    }
+
+    public String getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(String periodo) {
+        this.periodo = periodo;
+    }
+
+    public String getIdentificacion() {
+        return identificacion;
+    }
+
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getIdPrograma() {
+        return idPrograma;
+    }
+
+    public void setIdPrograma(int idPrograma) {
+        this.idPrograma = idPrograma;
     }
 
     public int getIdTest() {
