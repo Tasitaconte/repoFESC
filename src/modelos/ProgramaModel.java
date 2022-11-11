@@ -6,12 +6,14 @@ public class ProgramaModel {
 
     private String namePrograma;
 
-    private String codePrograma;
+    public ProgramaModel() {
 
-    public ProgramaModel(int idPrograma, String namePrograma, String codePrograma) {
+    }
+
+    public ProgramaModel(int idPrograma, String namePrograma) {
         this.idPrograma = idPrograma;
         this.namePrograma = namePrograma;
-        this.codePrograma = codePrograma;
+
     }
 
     public int getIdPrograma() {
@@ -22,20 +24,12 @@ public class ProgramaModel {
         return namePrograma;
     }
 
-    public String getCodePrograma() {
-        return codePrograma;
-    }
-
     public void setIdPrograma(int idPrograma) {
         this.idPrograma = idPrograma;
     }
 
     public void setNamePrograma(String namePrograma) {
         this.namePrograma = namePrograma;
-    }
-
-    public void setCodePrograma(String codePrograma) {
-        this.codePrograma = codePrograma;
     }
 
 }

@@ -14,18 +14,19 @@ public class DaoCarga extends conexionSQL implements IDaoCarga {
     @Override
     public boolean insertarMySQL(List<PruebaModel> pruebas) {
         System.out.println("\nSE VAN A INSERTA: " + pruebas.size() + " REGISTROS\n");
-        String sql = " INSERT INTO " + env.PRUEBA + "(" + env.COMUNICACION_ESCRITA + ","
+        String sql = " INSERT INTO " + env.PRUEBA + "(" + env.ID_TPRUEBA + "," + env.COMUNICACION_ESCRITA + ","
                 + env.RAZONAMIENTO_CUANTITATIVO + "," + env.LECTURA_CRITICA + "," + env.COMPETENCIAS_CIUDADANAS + ","
-                + env.INGLES + "," + env.NIVEL + ") VALUES (?, ?, ?, ?, ?, ?)";
+                + env.INGLES + "," + env.NIVEL + ") VALUES (?, ?, ?, ?, ?, ?, ?)";
         if (pruebas.size() > 1) {
             for (int i = 2; i <= pruebas.size(); i++) {
-                sql += ", (?, ?, ?, ?, ?, ?)";
+                sql += ", (?, ?, ?, ?, ?, ?, ?)";
             }
         }
         int parameterNumber = 1;
         try {
             try ( PreparedStatement ps = getConnection().prepareStatement(sql)) {
                 for (int i = 0; i < pruebas.size(); i++) {
+                    ps.setInt(parameterNumber++, pruebas.get(i).getIdTest());
                     ps.setInt(parameterNumber++, pruebas.get(i).getComunicacion_escrita());
                     ps.setInt(parameterNumber++, pruebas.get(i).getRazonamiento_cuantitativo());
                     ps.setInt(parameterNumber++, pruebas.get(i).getLectura_critica());
@@ -55,17 +56,25 @@ public class DaoCarga extends conexionSQL implements IDaoCarga {
         try {
             CsvReader leerDatos = new CsvReader(x);
             leerDatos.readHeaders();
+            
             while (leerDatos.readRecord()) {
-                
+                int idTest = y;
                 int comunicacion_escrita = Integer.parseInt(leerDatos.get(4));
                 int razonamiento_cuantitativo = Integer.parseInt(leerDatos.get(5));
                 int lectura_critica = Integer.parseInt(leerDatos.get(6));
                 int competencias_ciudadanas = Integer.parseInt(leerDatos.get(7));
-                int ingles = y;
+                int ingles = Integer.parseInt(leerDatos.get(8));
+                
                 String nivel = leerDatos.get(9);
-                usuarios.add(new PruebaModel(comunicacion_escrita, razonamiento_cuantitativo, lectura_critica, competencias_ciudadanas, ingles, nivel));
+                usuarios.add(new PruebaModel(idTest, comunicacion_escrita, razonamiento_cuantitativo, lectura_critica, competencias_ciudadanas, ingles, nivel));
             }
             leerDatos.close();
+            System.out.println("LISTA DE USUARIOS DEL CSV\n");
+            for(PruebaModel user : usuarios) {
+                System.out.println(
+                        user.getIdTest()
+                );
+            }
         } catch (FileNotFoundException e) {
         } catch (IOException e) {
         }

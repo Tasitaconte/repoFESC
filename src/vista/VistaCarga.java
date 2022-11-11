@@ -14,8 +14,8 @@ public class VistaCarga extends javax.swing.JFrame {
 
         btCarga = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        pruebaProgramas = new javax.swing.JComboBox<>();
-        pruebaSeleccion1 = new javax.swing.JComboBox<>();
+        pruebaSeleccion = new javax.swing.JComboBox<>();
+        pruebaPrograma = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -33,11 +33,11 @@ public class VistaCarga extends javax.swing.JFrame {
         jLabel1.setText("CARGAR ARCHIVO");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        pruebaProgramas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(pruebaProgramas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+        pruebaSeleccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(pruebaSeleccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        pruebaSeleccion1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(pruebaSeleccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        pruebaPrograma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(pruebaPrograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -54,17 +54,25 @@ public class VistaCarga extends javax.swing.JFrame {
     }
 
     public JComboBox<String> getPruebaSeleccion() {
-        return pruebaProgramas;
+        return pruebaSeleccion;
     }
 
     public void setPruebaSeleccion(JComboBox<String> pruebaSeleccion) {
-        this.pruebaProgramas = pruebaSeleccion;
+        this.pruebaSeleccion = pruebaSeleccion;
+    }
+
+    public JComboBox<String> getPruebaPrograma() {
+        return pruebaPrograma;
+    }
+
+    public void setPruebaPrograma(JComboBox<String> pruebaPrograma) {
+        this.pruebaPrograma = pruebaPrograma;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCarga;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JComboBox<String> pruebaProgramas;
-    private javax.swing.JComboBox<String> pruebaSeleccion1;
+    private javax.swing.JComboBox<String> pruebaPrograma;
+    private javax.swing.JComboBox<String> pruebaSeleccion;
     // End of variables declaration//GEN-END:variables
 }

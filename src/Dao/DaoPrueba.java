@@ -14,7 +14,7 @@ public class DaoPrueba extends conexionSQL implements IDaoPrueba {
         ArrayList<PruebaModel> arrayListPrueba = new ArrayList<>();
 
         String sql = "SELECT * FROM " + env.T_TPRUEBA
-                + " ORDER BY " + env.ID_TPRUEBA + " DESC";
+                + " ORDER BY " + env.ID_TPRUEBA + " ASC";
 
         try {
             PreparedStatement ps = getConnection().prepareStatement(sql);

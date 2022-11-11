@@ -13,7 +13,8 @@ public class PruebaModel {
 
     }
 
-    public PruebaModel(int comunicacion_escrita, int razonamiento_cuantitativo, int lectura_critica, int competencias_ciudadanas, int ingles, String nivel) {
+    public PruebaModel(int idTest,int comunicacion_escrita, int razonamiento_cuantitativo, int lectura_critica, int competencias_ciudadanas, int ingles, String nivel) {
+        this.idTest = idTest;
 
         this.comunicacion_escrita = comunicacion_escrita;
         this.razonamiento_cuantitativo = razonamiento_cuantitativo;

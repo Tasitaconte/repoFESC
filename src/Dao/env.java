@@ -22,7 +22,12 @@ public class env {
     public static String ID_TPRUEBA = "id_test";
     public static String NAME_TPRUEBA = "name_test";
 
-    //TABLA PRUEBA
+    //TABLA PROGRAMA
+    public static String T_PROGRAMA = "programa";
+    public static String ID_PROGRAMA = "id_programa";
+    public static String NAME_PROGRAMA = "name_programa";
+
+    //TABLA DATOS PRUEBA
     public static String PRUEBA = "datosprueba";
     public static String ID_PRUEBA = "id_Dprueba";
     public static String COMUNICACION_ESCRITA = "comunicacion_escrita";
@@ -32,5 +37,4 @@ public class env {
     public static String INGLES = "ingles";
     public static String NIVEL = "nivel";
 
-   
 }
