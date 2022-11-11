@@ -8,11 +8,6 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.binary.Base64;
 
-/**
- *
- * @author Somos Programadores
- * Facebook https://web.facebook.com/developers08062019
- */
 public class encoder {
          String secretKey = "SomosProgramadores";
     

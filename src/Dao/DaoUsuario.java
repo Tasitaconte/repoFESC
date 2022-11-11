@@ -20,7 +20,6 @@ public class DaoUsuario extends conexionSQL implements IDaoUsuario {
             ps.setString(3, usuario.getUserEmail());
             ps.setString(4, usuario.getUserPassword());
             ps.executeUpdate();
-
             System.out.println("Creado con exito");
             return true;
 

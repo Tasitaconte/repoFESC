@@ -2,19 +2,41 @@ package modelos;
 
 public class PruebaModel {
 
-    private int idPrueba;
-    private String registro;
-    private String periodo;
-    private String identificacion;
-    private String nombre;
-    private String comEscrita;
+    private int idPrueba, idTest, comunicacion_escrita,
+            razonamiento_cuantitativo,
+            lectura_critica,
+            competencias_ciudadanas,
+            ingles;
+    private String nivel, nameTest;
 
-    public PruebaModel(String registro, String periodo, String identificacion, String nombre, String comEscrita) {
-        this.registro = registro;
-        this.periodo = periodo;
-        this.identificacion = identificacion;
-        this.nombre = nombre;
-        this.comEscrita = comEscrita;
+    public PruebaModel() {
+
+    }
+
+    public PruebaModel(int comunicacion_escrita, int razonamiento_cuantitativo, int lectura_critica, int competencias_ciudadanas, int ingles, String nivel) {
+
+        this.comunicacion_escrita = comunicacion_escrita;
+        this.razonamiento_cuantitativo = razonamiento_cuantitativo;
+        this.lectura_critica = lectura_critica;
+        this.competencias_ciudadanas = competencias_ciudadanas;
+        this.ingles = ingles;
+        this.nivel = nivel;
+    }
+
+    public int getIdTest() {
+        return idTest;
+    }
+
+    public void setIdTest(int idTest) {
+        this.idTest = idTest;
+    }
+
+    public String getNameTest() {
+        return nameTest;
+    }
+
+    public void setNameTest(String nameTest) {
+        this.nameTest = nameTest;
     }
 
     public int getIdPrueba() {
@@ -25,44 +47,52 @@ public class PruebaModel {
         this.idPrueba = idPrueba;
     }
 
-    public String getRegistro() {
-        return registro;
+    public int getComunicacion_escrita() {
+        return comunicacion_escrita;
     }
 
-    public void setRegistro(String registro) {
-        this.registro = registro;
+    public void setComunicacion_escrita(int comunicacion_escrita) {
+        this.comunicacion_escrita = comunicacion_escrita;
     }
 
-    public String getPeriodo() {
-        return periodo;
+    public int getRazonamiento_cuantitativo() {
+        return razonamiento_cuantitativo;
     }
 
-    public void setPeriodo(String periodo) {
-        this.periodo = periodo;
+    public void setRazonamiento_cuantitativo(int razonamiento_cuantitativo) {
+        this.razonamiento_cuantitativo = razonamiento_cuantitativo;
     }
 
-    public String getIdentificacion() {
-        return identificacion;
+    public int getLectura_critica() {
+        return lectura_critica;
     }
 
-    public void setIdentificacion(String identificacion) {
-        this.identificacion = identificacion;
+    public void setLectura_critica(int lectura_critica) {
+        this.lectura_critica = lectura_critica;
     }
 
-    public String getNombre() {
-        return nombre;
+    public int getCompetencias_ciudadanas() {
+        return competencias_ciudadanas;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setCompetencias_ciudadanas(int competencias_ciudadanas) {
+        this.competencias_ciudadanas = competencias_ciudadanas;
     }
 
-    public String getComEscrita() {
-        return comEscrita;
+    public int getIngles() {
+        return ingles;
     }
 
-    public void setComEscrita(String comEscrita) {
-        this.comEscrita = comEscrita;
+    public void setIngles(int ingles) {
+        this.ingles = ingles;
+    }
+
+    public String getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(String nivel) {
+        this.nivel = nivel;
     }
 
 }

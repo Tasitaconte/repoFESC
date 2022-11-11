@@ -17,34 +17,20 @@ public class env {
     public static String EMAIL_USER = "email_user";
     public static String PASSWORD_USER = "password_user";
 
-    //TABLA ROL
-    public static String T_ROL;
-
-    public static int ID_ROL;
-    public static String NAME_ROL;
-
-    //TABLA INSTITUCION
-    public static String T_INSTITUCION;
-
-    public static int ID_INSTITUCION;
-    public static String NAME_INSTITUCION;
-
-    //TABLA PROGRAMA
-    public static String T_PROGRAMA;
-
-    public static int ID_PROGRAMA;
-    public static String NAME_PROGRAMA;
-    public static String CODE_PROGRAMA;
+    //TABLA TIPO PRUEBA
+    public static String T_TPRUEBA = "prueba";
+    public static String ID_TPRUEBA = "id_test";
+    public static String NAME_TPRUEBA = "name_test";
 
     //TABLA PRUEBA
-    public static String PRUEBA = "pruebacsvtest";
+    public static String PRUEBA = "datosprueba";
+    public static String ID_PRUEBA = "id_Dprueba";
+    public static String COMUNICACION_ESCRITA = "comunicacion_escrita";
+    public static String RAZONAMIENTO_CUANTITATIVO = "razonamiento_cuantitativo";
+    public static String LECTURA_CRITICA = "lectura_critica";
+    public static String COMPETENCIAS_CIUDADANAS = "competencias_ciudadanas";
+    public static String INGLES = "ingles";
+    public static String NIVEL = "nivel";
 
-    public static int ID_PRUEBA;
-    public static String REGISTRO = "REGISTRO";
-    public static String PERIODO = "PERIODO";
-    public static String IDENTIFICACION = "IDENTIFICACION";
-    public static String NOMBRE = "NOMBRE";
-    public static String COMUNICACION_ESCRITA = "COMUNICACION_ESCRITA";
-
-    //Tabla pruebaCSV
+   
 }

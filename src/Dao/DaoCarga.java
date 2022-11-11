@@ -14,19 +14,26 @@ public class DaoCarga extends conexionSQL implements IDaoCarga {
     @Override
     public boolean insertarMySQL(List<PruebaModel> pruebas) {
         System.out.println("\nSE VAN A INSERTA: " + pruebas.size() + " REGISTROS\n");
-        String sql = " INSERT INTO " + env.PRUEBA + "(" + env.REGISTRO + ","
-                + env.PERIODO + "," + env.IDENTIFICACION + "," + env.NOMBRE + ","
-                + env.COMUNICACION_ESCRITA + ") VALUES (?, ?, ?, ?, ?)";
+        String sql = " INSERT INTO " + env.PRUEBA + "(" + env.COMUNICACION_ESCRITA + ","
+                + env.RAZONAMIENTO_CUANTITATIVO + "," + env.LECTURA_CRITICA + "," + env.COMPETENCIAS_CIUDADANAS + ","
+                + env.INGLES + "," + env.NIVEL + ") VALUES (?, ?, ?, ?, ?, ?)";
+        if (pruebas.size() > 1) {
+            for (int i = 2; i <= pruebas.size(); i++) {
+                sql += ", (?, ?, ?, ?, ?, ?)";
+            }
+        }
+        int parameterNumber = 1;
         try {
             try ( PreparedStatement ps = getConnection().prepareStatement(sql)) {
                 for (int i = 0; i < pruebas.size(); i++) {
-                    ps.setString(1, pruebas.get(i).getRegistro());
-                    ps.setString(2, pruebas.get(i).getPeriodo());
-                    ps.setString(3, pruebas.get(i).getIdentificacion());
-                    ps.setString(4, pruebas.get(i).getNombre());
-                    ps.setString(5, pruebas.get(i).getComEscrita());
-                    ps.executeUpdate();
+                    ps.setInt(parameterNumber++, pruebas.get(i).getComunicacion_escrita());
+                    ps.setInt(parameterNumber++, pruebas.get(i).getRazonamiento_cuantitativo());
+                    ps.setInt(parameterNumber++, pruebas.get(i).getLectura_critica());
+                    ps.setInt(parameterNumber++, pruebas.get(i).getCompetencias_ciudadanas());
+                    ps.setInt(parameterNumber++, pruebas.get(i).getIngles());
+                    ps.setString(parameterNumber++, pruebas.get(i).getNivel());
                 }
+                ps.executeUpdate();
             }
             getConnection().close();
             return true;
@@ -43,19 +50,20 @@ public class DaoCarga extends conexionSQL implements IDaoCarga {
     }
 
     @Override
-    public List<PruebaModel> importarcsv(String x) {
+    public List<PruebaModel> importarcsv(String x, int y) {
         List<PruebaModel> usuarios = new ArrayList<>();
         try {
             CsvReader leerDatos = new CsvReader(x);
             leerDatos.readHeaders();
             while (leerDatos.readRecord()) {
-                String registro = leerDatos.get(0);
-                String periodo = leerDatos.get(1);
-                String identificacion = leerDatos.get(2);
-                String nombre = leerDatos.get(3);
-                String comEscrita = leerDatos.get(4);
-
-                usuarios.add(new PruebaModel(registro, periodo, identificacion, nombre, comEscrita));
+                
+                int comunicacion_escrita = Integer.parseInt(leerDatos.get(4));
+                int razonamiento_cuantitativo = Integer.parseInt(leerDatos.get(5));
+                int lectura_critica = Integer.parseInt(leerDatos.get(6));
+                int competencias_ciudadanas = Integer.parseInt(leerDatos.get(7));
+                int ingles = y;
+                String nivel = leerDatos.get(9);
+                usuarios.add(new PruebaModel(comunicacion_escrita, razonamiento_cuantitativo, lectura_critica, competencias_ciudadanas, ingles, nivel));
             }
             leerDatos.close();
         } catch (FileNotFoundException e) {

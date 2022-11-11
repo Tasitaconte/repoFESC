@@ -1,8 +1,10 @@
 package controladores;
 
 import Dao.DaoCarga;
+import Dao.DaoPrueba;
+import Dao.IDaoPrueba;
 import Dao.IDaoCarga;
-import java.util.List;
+import clases.libPersonal;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -15,6 +17,7 @@ public class ControladorIntermedio {
     static VistaCarga vista = new VistaCarga();
 
     public static void inicio() {
+        setPrueba();
         vista.setVisible(true);
     }
 
@@ -22,64 +25,48 @@ public class ControladorIntermedio {
         vista.setVisible(false);
     }
 
+    public static void setPrueba() {
+        IDaoPrueba iDaoPrueba = new DaoPrueba();
+        vista.getPruebaSeleccion().removeAllItems();
+        vista.getPruebaSeleccion().addItem("Elija tipo de prueba");
+
+        for (PruebaModel p : iDaoPrueba.nameTest()) {
+            vista.getPruebaSeleccion().addItem(p.getNameTest());
+        }
+    }
+
+    public static int getPrueba() {
+        return vista.getPruebaSeleccion().getSelectedIndex();
+    }
+
     public static void btnCargar() {
         IDaoCarga iDaoCarga = new DaoCarga();
         JFileChooser chooser = new JFileChooser();
 
-        String path = btnObtencion();
-        System.out.println(path);
-        List<PruebaModel> importC = iDaoCarga.importarcsv(path);
-        if (iDaoCarga.insertarMySQL(importC)) {
+        if (iDaoCarga.insertarMySQL(iDaoCarga.importarcsv(btnObtencion(), getPrueba()))) {
             JOptionPane.showMessageDialog(chooser, "Datos Cargados");
+            vista.getPruebaSeleccion().setSelectedIndex(0);
         } else {
             JOptionPane.showMessageDialog(chooser, "Fallo a la hora de guardar intente de nuevo");
         }
 
     }
 
-    //obtiene la ruta del archivo
+    //obtiene la ruta del archivoCSV
     public static String btnObtencion() {
-        boolean activado = true;
+        JFileChooser chooser = new JFileChooser();
+        chooser.setFileFilter(filter);
         do {
-            JFileChooser chooser = new JFileChooser();
-            chooser.setFileFilter(filter);
-
             int option = chooser.showOpenDialog(vista);
-            if (option == JFileChooser.APPROVE_OPTION) {
 
-                String fileName = chooser.getSelectedFile().getPath();
-                String ext = getExtensione(fileName);
-                if (compExt(ext) != activado) {
-                    return fileName;
+            if (option == JFileChooser.APPROVE_OPTION) {
+                if (!libPersonal.compExt(libPersonal.getExtensione(chooser.getSelectedFile().getPath()))) {
+                    return chooser.getSelectedFile().getPath();
                 }
             }
             if (option == JFileChooser.CANCEL_OPTION) {
-                activado = !activado;
+                return null;
             }
-        } while (activado);
-        return null;
-    }
-
-    //comparacion de extension
-    public static boolean compExt(String ext) {
-        JFileChooser chooser = new JFileChooser();
-        // chooser.setFileFilter(filter);
-        if (!"csv".equals(ext)) { ///condición para solo ser seleccionados csv;
-            JOptionPane.showMessageDialog(chooser, "Archivo incompatible porfavor elija un archivo .csv");
-        } else {
-            return false;
-        }
-        return true;
-    }
-
-    //Obtiene la extensión de los archivos
-    public static String getExtensione(String ext) {
-        String fileName = ext;
-        String fe = "";
-        int i = fileName.lastIndexOf('.');
-        if (i > 0) {
-            fe = fileName.substring(i + 1);
-        }
-        return fe;
+        } while (true);
     }
 }
