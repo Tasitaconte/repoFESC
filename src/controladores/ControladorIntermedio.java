@@ -7,8 +7,13 @@ import Dao.IDaoPrueba;
 import Dao.IDaoCarga;
 import Dao.IDaoPrograma;
 import clases.libPersonal;
+import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import modelos.ProgramaModel;
 import modelos.PruebaModel;
@@ -20,6 +25,9 @@ public class ControladorIntermedio {
     static VistaCarga vista = new VistaCarga();
 
     public static void inicio() {
+        libPersonal.styleWindows();
+
+        vista.setLocationRelativeTo(null);
         setPrueba();
         setPrograma();
         vista.setVisible(true);
@@ -78,10 +86,10 @@ public class ControladorIntermedio {
 
     }
 
-    public static void table(){
- 
+    public static void table() {
+
     }
-    
+
     //obtiene la ruta del archivoCSV
     public static String btnObtencion() {
         JFileChooser chooser = new JFileChooser();

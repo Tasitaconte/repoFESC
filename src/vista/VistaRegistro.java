@@ -78,6 +78,7 @@ public class VistaRegistro extends javax.swing.JFrame {
         Bregister.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         Bregister.setText("REGISTRAR");
         Bregister.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Bregister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Bregister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BregisterActionPerformed(evt);

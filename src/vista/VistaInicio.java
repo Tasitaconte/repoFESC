@@ -28,8 +28,11 @@ public class VistaInicio extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRegister.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        btnRegister.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         btnRegister.setText("REGISTRAR");
+        btnRegister.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegister.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterActionPerformed(evt);
@@ -37,8 +40,10 @@ public class VistaInicio extends javax.swing.JFrame {
         });
         jPanel1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 270, 70));
 
-        btnIngreso.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        btnIngreso.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         btnIngreso.setText("INICIAR SESIÓN");
+        btnIngreso.setToolTipText("");
+        btnIngreso.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnIngreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresoActionPerformed(evt);

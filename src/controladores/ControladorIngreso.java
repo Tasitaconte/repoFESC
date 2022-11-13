@@ -3,6 +3,7 @@ package controladores;
 import Dao.DaoUsuario;
 import Dao.IDaoUsuario;
 import clases.encoder;
+import clases.libPersonal;
 import static controladores.ControladorRegistro.vista;
 import javax.swing.JOptionPane;
 import modelos.userModel;
@@ -14,6 +15,8 @@ public class ControladorIngreso {
     static encoder mEnconder = new encoder();
 
     public static void inicio() {
+        libPersonal.styleWindows();
+        v.setLocationRelativeTo(null);
         v.setVisible(true);
     }
 
@@ -30,24 +33,25 @@ public class ControladorIngreso {
 
         String correo = v.getiCorreo().getText();
         String Pass = mEnconder.ecnode(v.getiPass().getText());
-        
-        if(!validacion(correo, Pass)){
+
+        if (!validacion(correo, Pass)) {
             limpiar();
             JOptionPane.showMessageDialog(vista, "DATOS INCORRECTOS VUELVA A INTENTAR \n", "AVISO!", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        }else{
+        } else {
             ControladorIngreso.cerrar();
             ControladorIntermedio.inicio();
         }
     }
-    
-    public static boolean validacion(String x, String y){
-        userModel u = new userModel(null, x,null, y);
+
+    public static boolean validacion(String x, String y) {
+        userModel u = new userModel(null, x, null, y);
         IDaoUsuario iDaoUsuario = new DaoUsuario();
         return iDaoUsuario.Dingreso(u);
     }
-     
+
     public static void limpiar() {
         v.getiCorreo().setText("");
         v.getiPass().setText("");
     }
+
 }

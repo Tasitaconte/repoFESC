@@ -4,6 +4,7 @@ import Dao.DaoUsuario;
 import Dao.IDaoUsuario;
 import javax.swing.JOptionPane;
 import clases.encoder;
+import clases.libPersonal;
 import modelos.userModel;
 import vista.VistaRegistro;
 
@@ -13,6 +14,8 @@ public class ControladorRegistro {
     static VistaRegistro vista = new VistaRegistro();
 
     public static void inicio() {
+         libPersonal.styleWindows();
+        vista.setLocationRelativeTo(null);
         vista.setVisible(true);
     }
 

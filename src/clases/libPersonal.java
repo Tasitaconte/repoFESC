@@ -1,12 +1,20 @@
 package clases;
 
+import controladores.ControladorIntermedio;
+import java.io.Serializable;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
-public class libPersonal {
+public class libPersonal  extends Object
+        implements Serializable {
 
     public static boolean compExt(String ext) {
         JFileChooser chooser = new JFileChooser();
@@ -33,8 +41,21 @@ public class libPersonal {
         Matcher resultados = patron.matcher(ext);
 
         while (resultados.find()) {
-           return resultados.group();
+            return resultados.group();
         }
         return resultados.group();
+    }
+
+    public static void CentrarJFrame() {
+        JFrame j = new JFrame();
+        j.setLocationRelativeTo(null);
+    }
+    
+    public static void styleWindows(){
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(ControladorIntermedio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
