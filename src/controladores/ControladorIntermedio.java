@@ -87,7 +87,7 @@ public class ControladorIntermedio {
     }
 
     public static void table() {
-
+        
     }
 
     //obtiene la ruta del archivoCSV
