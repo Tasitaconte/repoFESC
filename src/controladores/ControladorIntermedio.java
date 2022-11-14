@@ -3,33 +3,33 @@ package controladores;
 import Dao.DaoCarga;
 import Dao.DaoPrograma;
 import Dao.DaoPrueba;
+import Dao.DaoResultados;
 import Dao.IDaoPrueba;
 import Dao.IDaoCarga;
 import Dao.IDaoPrograma;
+import Dao.IDaoResultados;
 import clases.libPersonal;
-import java.io.Serializable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 import modelos.ProgramaModel;
 import modelos.PruebaModel;
 import vista.VistaCarga;
 
 public class ControladorIntermedio {
 
+    static DefaultTableModel modelo;
     private static final FileNameExtensionFilter filter = new FileNameExtensionFilter("CSV", "csv");
     static VistaCarga vista = new VistaCarga();
 
     public static void inicio() {
         libPersonal.styleWindows();
-
         vista.setLocationRelativeTo(null);
         setPrueba();
         setPrograma();
+        setID();
         vista.setVisible(true);
     }
 
@@ -86,11 +86,6 @@ public class ControladorIntermedio {
 
     }
 
-    public static void table() {
-        
-    }
-
-    //obtiene la ruta del archivoCSV
     public static String btnObtencion() {
         JFileChooser chooser = new JFileChooser();
         chooser.setFileFilter(filter);
@@ -107,5 +102,24 @@ public class ControladorIntermedio {
                 return null;
             }
         } while (true);
+    }
+
+    public static void setID() {
+
+        IDaoResultados iDaoResultados = new DaoResultados();
+
+        ArrayList<PruebaModel> p = iDaoResultados.cliente();
+        modelo = (DefaultTableModel) vista.getTable().getModel();
+
+        Object[] cl = new Object[iDaoResultados.cliente().size()];
+        for (int i = 0; i < 20; i++) {
+            cl[0] = p.get(i).getNombre();
+            cl[1] = p.get(i).getCompetencias_ciudadanas();
+            cl[2] = p.get(i).getCompetencias_ciudadanas();
+            cl[3] = p.get(i).getCompetencias_ciudadanas();
+            cl[4] = p.get(i).getCompetencias_ciudadanas();
+            modelo.addRow(cl);
+        }
+        vista.getTable().setModel(modelo);
     }
 }

@@ -30,19 +30,23 @@ public class ControladorIngreso {
     }
 
     public static void ingreso() {
-
         String correo = v.getiCorreo().getText();
         String Pass = mEnconder.ecnode(v.getiPass().getText());
 
-        if (!validacion(correo, Pass)) {
-            limpiar();
-            JOptionPane.showMessageDialog(vista, "DATOS INCORRECTOS VUELVA A INTENTAR \n", "AVISO!", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        if (v.getiCorreo().getText().equals("") || v.getiPass().getText().equals("")) {
+            JOptionPane.showMessageDialog(vista, "RELLENE LOS DATOS");
         } else {
-            ControladorIngreso.cerrar();
-            ControladorIntermedio.inicio();
+            if (!validacion(correo, Pass)) {
+                limpiar();
+                JOptionPane.showMessageDialog(vista, "DATOS INCORRECTOS VUELVA A INTENTAR \n", "AVISO!", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                ControladorIngreso.cerrar();
+                ControladorIntermedio.inicio();
+            }
         }
     }
 
+    // pregunta a la base de datos si son correctos los datos mandados a los parametros
     public static boolean validacion(String x, String y) {
         userModel u = new userModel(null, x, null, y);
         IDaoUsuario iDaoUsuario = new DaoUsuario();

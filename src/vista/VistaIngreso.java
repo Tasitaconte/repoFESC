@@ -43,25 +43,26 @@ public class VistaIngreso extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
 
         iCorreo.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        iCorreo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel1.add(iCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 510, -1));
 
-        iPass.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        iPass.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        iPass.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel1.add(iPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 510, -1));
 
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel3.setText("CORREO");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, -1, -1));
 
-        btnInicio.setBackground(new java.awt.Color(12, 183, 242));
-        btnInicio.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        btnInicio.setText("INICIAR SESIÓN");
+        btnInicio.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         btnInicio.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnInicio.setLabel("ENTRAR");
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 210, 50));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, 170, 70));
 
         Bback.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         Bback.setText("VOLVER");

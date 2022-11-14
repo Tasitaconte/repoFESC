@@ -1,11 +1,16 @@
 package vista;
 
 import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class VistaCarga extends javax.swing.JFrame {
-
+   
+    
     public VistaCarga() {
+
         initComponents();
+    
     }
 
     @SuppressWarnings("unchecked")
@@ -59,12 +64,20 @@ public class VistaCarga extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(table);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 770, 500));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 770, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -96,6 +109,14 @@ public class VistaCarga extends javax.swing.JFrame {
         this.pruebaPrograma = pruebaPrograma;
     }
 
+    public JTable getTable() {
+        return table;
+    }
+
+    public void setTable(JTable table) {
+        this.table = table;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCarga;
     private javax.swing.JLabel jLabel1;
