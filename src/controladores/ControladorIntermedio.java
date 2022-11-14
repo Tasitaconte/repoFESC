@@ -27,10 +27,11 @@ public class ControladorIntermedio {
     public static void inicio() {
         libPersonal.styleWindows();
         vista.setLocationRelativeTo(null);
+        vista.setVisible(true);
         setPrueba();
         setPrograma();
-        setID();
-        vista.setVisible(true);
+        setProgramaFiltro();
+        setPruebaFiltro();
     }
 
     public static void cerrar() {
@@ -61,6 +62,32 @@ public class ControladorIntermedio {
 
     public static int getPrograma() {
         return vista.getPruebaPrograma().getSelectedIndex();
+    }
+
+    public static void setPruebaFiltro() {
+        IDaoPrueba iDaoPrueba = new DaoPrueba();
+        vista.getFiltroPrueba().removeAllItems();
+        vista.getFiltroPrueba().addItem("Elija tipo de prueba");
+        for (PruebaModel p : iDaoPrueba.nameTest()) {
+            vista.getFiltroPrueba().addItem(p.getNameTest());
+        }
+    }
+
+    public static void setProgramaFiltro() {
+        IDaoPrograma iDaoPrograma = new DaoPrograma();
+        vista.getFiltroPrograma().removeAllItems();
+        vista.getFiltroPrograma().addItem("Elija el programa");
+        for (ProgramaModel p : iDaoPrograma.namePrograma()) {
+            vista.getFiltroPrograma().addItem(p.getNamePrograma());
+        }
+    }
+
+    public static int getPruebaFiltro() {
+        return vista.getFiltroPrueba().getSelectedIndex();
+    }
+
+    public static int getProgramaFiltro() {
+        return vista.getFiltroPrograma().getSelectedIndex();
     }
 
     public static void limpiar() {
@@ -104,13 +131,11 @@ public class ControladorIntermedio {
         } while (true);
     }
 
-    public static void setID() {
+    public static void btn_buscar() {
 
         IDaoResultados iDaoResultados = new DaoResultados();
-
         ArrayList<PruebaModel> p = iDaoResultados.cliente();
         modelo = (DefaultTableModel) vista.getTable().getModel();
-
         Object[] cl = new Object[iDaoResultados.cliente().size()];
         for (int i = 0; i < 20; i++) {
             cl[0] = p.get(i).getNombre();
@@ -122,4 +147,14 @@ public class ControladorIntermedio {
         }
         vista.getTable().setModel(modelo);
     }
+
+    public static void limpiarRows() {
+        modelo = (DefaultTableModel) vista.getTable().getModel();
+        int coutRow = modelo.getRowCount();
+        for (int i = 0; i < coutRow; i++) {
+            modelo.removeRow(0);
+        }
+        vista.getTable().setModel(modelo);
+    }
+
 }
