@@ -13,18 +13,16 @@ public class ControladorCarga {
 
     private static final FileNameExtensionFilter filter = new FileNameExtensionFilter("CSV", "csv");
 
-    public void btnCarga(String btn_obtencion, int x, int y) {
+    public void btnCarga(String x, int y, int z) {
         IDaoCarga iDaoCarga = new DaoCarga();
         JFileChooser chooser = new JFileChooser();
-
-        if (iDaoCarga.insertarMySQL(iDaoCarga.importarcsv(btn_obtencion, x, y))) {
+        if (iDaoCarga.insertarMySQL(iDaoCarga.importarcsv(x, y, z))) {
             JOptionPane.showMessageDialog(chooser, "Datos Cargados");
             limpiar();
         } else {
             JOptionPane.showMessageDialog(chooser, "Fallo a la hora de guardar intente de nuevo");
             limpiar();
         }
-
     }
 
     public String btn_obtencion(VistaCarga vista) {
@@ -43,7 +41,5 @@ public class ControladorCarga {
             }
         } while (true);
     }
-    
-
-
+ 
 }

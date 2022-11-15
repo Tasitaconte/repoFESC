@@ -29,6 +29,7 @@ public class DaoCarga extends conexionSQL implements IDaoCarga {
                 for (int i = 0; i < pruebas.size(); i++) {
                     ps.setInt(parameterNumber++, pruebas.get(i).getIdTest());
                     ps.setInt(parameterNumber++, pruebas.get(i).getIdPrograma());
+                    System.err.println(pruebas.get(i).getIdPrograma());
                     ps.setString(parameterNumber++, pruebas.get(i).getRegistro());
                     ps.setString(parameterNumber++, pruebas.get(i).getPeriodo());
                     ps.setString(parameterNumber++, pruebas.get(i).getIdentificacion());
@@ -86,7 +87,8 @@ public class DaoCarga extends conexionSQL implements IDaoCarga {
             System.out.println("LISTA DE USUARIOS DEL CSV\n");
             for (PruebaModel user : usuarios) {
                 System.out.println(
-                        user.getIdTest()
+                       "idTest"+ user.getIdTest()+"/ " + "idPrueba "+
+                        user.getIdPrograma()
                 );
             }
         } catch (FileNotFoundException e) {

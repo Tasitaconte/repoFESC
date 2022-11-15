@@ -7,6 +7,7 @@ import Dao.IDaoPrograma;
 import clases.libPersonal;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import modelos.ProgramaModel;
 import modelos.PruebaModel;
 import vista.VistaCarga;
@@ -94,22 +95,18 @@ public class ControladorIntermedio {
 
     public static void btnCargar() {
         JFileChooser chooser = new JFileChooser();
-        if (getPrograma() == 0 || getPrueba() == 0) {
+        if (getPrueba() == 0 || getPrograma() == 0) {
             JOptionPane.showMessageDialog(chooser, "Seleccione el programa o prueba");
         } else {
-            cC.btnCarga(btnObtencion(), getPrograma(), getPrueba());
+            cC.btnCarga(cC.btn_obtencion(vista), getPrueba(), getPrograma());
         }
-    }
-
-    public static String btnObtencion() {
-        return cC.btn_obtencion(vista);
     }
 
     public static void btn_buscar() {
         ct.btn_buscar(vista);
     }
 
-    public static void limpiarRows() {
+    public static void btn_limpiarRows() {
         ct.limpiarRows(vista);
     }
 }

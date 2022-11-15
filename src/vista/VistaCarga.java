@@ -153,7 +153,7 @@ public class VistaCarga extends javax.swing.JFrame {
     }//GEN-LAST:event_btCargaActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        controladores.ControladorIntermedio.limpiarRows();
+        controladores.ControladorIntermedio.btn_limpiarRows();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btngetResultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngetResultadosActionPerformed
