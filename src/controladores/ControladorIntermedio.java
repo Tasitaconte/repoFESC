@@ -103,7 +103,11 @@ public class ControladorIntermedio {
     }
 
     public static void btn_buscar() {
-        ct.btn_buscar(vista);
+        if(getPruebaFiltro()== 0 && getProgramaFiltro()== 0){
+            JOptionPane.showMessageDialog(vista, "Seleccione los datos para filtrar");
+        }else{
+            ct.btn_buscar(vista,getPruebaFiltro(),getProgramaFiltro());
+        }
     }
 
     public static void btn_limpiarRows() {

@@ -36,10 +36,9 @@ public class ControladorCarga {
                 }
             }
             if (option == JFileChooser.CANCEL_OPTION) {
-                limpiar();
                 return null;
             }
         } while (true);
     }
- 
+
 }

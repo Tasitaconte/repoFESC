@@ -28,7 +28,6 @@ public class VistaCarga extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         btngetResultados = new javax.swing.JButton();
-        FiltroPrograma1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -95,7 +94,7 @@ public class VistaCarga extends javax.swing.JFrame {
 
             },
             new String [] {
-                "nombre", "p1", "p2", "p3", "p4", "p5", "p6", "Ningles", "GRAFICA"
+                "nombre", "p1", "p2", "p3", "p4", "p5", "p6", "GRAFICA"
             }
         ));
         jScrollPane1.setViewportView(table);
@@ -108,11 +107,11 @@ public class VistaCarga extends javax.swing.JFrame {
 
         FiltroPrueba.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         FiltroPrueba.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(FiltroPrueba, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
+        jPanel2.add(FiltroPrueba, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
 
         FiltroPrograma.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         FiltroPrograma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(FiltroPrograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, -1, -1));
+        jPanel2.add(FiltroPrograma, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
 
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -139,17 +138,13 @@ public class VistaCarga extends javax.swing.JFrame {
         });
         jPanel2.add(btngetResultados, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, -1, -1));
 
-        FiltroPrograma1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        FiltroPrograma1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(FiltroPrograma1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, -1, -1));
-
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 770, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCargaActionPerformed
-       controladores.ControladorIntermedio.btnCargar();
+        controladores.ControladorIntermedio.btnCargar();
     }//GEN-LAST:event_btCargaActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -209,7 +204,6 @@ public class VistaCarga extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> FiltroPrograma;
-    private javax.swing.JComboBox<String> FiltroPrograma1;
     private javax.swing.JComboBox<String> FiltroPrueba;
     private javax.swing.JButton btCarga;
     private javax.swing.JButton btnLimpiar;

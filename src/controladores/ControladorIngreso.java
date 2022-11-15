@@ -30,6 +30,7 @@ public class ControladorIngreso {
     }
 
     public static void ingreso() {
+        
         String correo = v.getiCorreo().getText();
         String Pass = mEnconder.ecnode(v.getiPass().getText());
 

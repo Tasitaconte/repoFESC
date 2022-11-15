@@ -7,7 +7,7 @@ import modelos.PruebaModel;
 
 public interface IDaoResultados {
     
-    ArrayList<PruebaModel> cliente();
+    ArrayList<PruebaModel> cliente(int x, int y);
     
     
     
