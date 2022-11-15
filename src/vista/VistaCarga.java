@@ -4,12 +4,9 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 
 public class VistaCarga extends javax.swing.JFrame {
-   
-    
-    public VistaCarga() {
 
+    public VistaCarga() {
         initComponents();
-    
     }
 
     @SuppressWarnings("unchecked")
@@ -152,7 +149,7 @@ public class VistaCarga extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCargaActionPerformed
-        controladores.ControladorIntermedio.btnCargar();
+       controladores.ControladorIntermedio.btnCargar();
     }//GEN-LAST:event_btCargaActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -209,7 +206,7 @@ public class VistaCarga extends javax.swing.JFrame {
     public void setFiltroPrueba(JComboBox<String> FiltroPrueba) {
         this.FiltroPrueba = FiltroPrueba;
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> FiltroPrograma;
     private javax.swing.JComboBox<String> FiltroPrograma1;

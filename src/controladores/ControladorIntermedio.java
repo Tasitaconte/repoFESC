@@ -1,41 +1,38 @@
 package controladores;
 
-import Dao.DaoCarga;
 import Dao.DaoPrograma;
 import Dao.DaoPrueba;
-import Dao.DaoResultados;
 import Dao.IDaoPrueba;
-import Dao.IDaoCarga;
 import Dao.IDaoPrograma;
-import Dao.IDaoResultados;
 import clases.libPersonal;
-import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableModel;
 import modelos.ProgramaModel;
 import modelos.PruebaModel;
 import vista.VistaCarga;
 
 public class ControladorIntermedio {
 
-    static DefaultTableModel modelo;
-    private static final FileNameExtensionFilter filter = new FileNameExtensionFilter("CSV", "csv");
+    static ControladorTabla ct = new ControladorTabla();
+    static ControladorCarga cC = new ControladorCarga();
     static VistaCarga vista = new VistaCarga();
 
     public static void inicio() {
         libPersonal.styleWindows();
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
-        setPrueba();
-        setPrograma();
-        setProgramaFiltro();
-        setPruebaFiltro();
+        setAll();
     }
 
     public static void cerrar() {
         vista.setVisible(false);
+    }
+
+    public static void setAll() {
+        setPrueba();
+        setPrograma();
+        setProgramaFiltro();
+        setPruebaFiltro();
     }
 
     public static void setPrueba() {
@@ -96,65 +93,23 @@ public class ControladorIntermedio {
     }
 
     public static void btnCargar() {
-        IDaoCarga iDaoCarga = new DaoCarga();
         JFileChooser chooser = new JFileChooser();
-
-        if (getPrueba() == 0 || getPrograma() == 0) {
+        if (getPrograma() == 0 || getPrueba() == 0) {
             JOptionPane.showMessageDialog(chooser, "Seleccione el programa o prueba");
         } else {
-            if (iDaoCarga.insertarMySQL(iDaoCarga.importarcsv(btnObtencion(), getPrueba(), getPrograma()))) {
-                JOptionPane.showMessageDialog(chooser, "Datos Cargados");
-                limpiar();
-            } else {
-                JOptionPane.showMessageDialog(chooser, "Fallo a la hora de guardar intente de nuevo");
-                limpiar();
-            }
+            cC.btnCarga(btnObtencion(), getPrograma(), getPrueba());
         }
-
     }
 
     public static String btnObtencion() {
-        JFileChooser chooser = new JFileChooser();
-        chooser.setFileFilter(filter);
-        do {
-            int option = chooser.showOpenDialog(vista);
-
-            if (option == JFileChooser.APPROVE_OPTION) {
-                if (!libPersonal.compExt(libPersonal.getExtensione(chooser.getSelectedFile().getPath()))) {
-                    return chooser.getSelectedFile().getPath();
-                }
-            }
-            if (option == JFileChooser.CANCEL_OPTION) {
-                limpiar();
-                return null;
-            }
-        } while (true);
+        return cC.btn_obtencion(vista);
     }
 
     public static void btn_buscar() {
-
-        IDaoResultados iDaoResultados = new DaoResultados();
-        ArrayList<PruebaModel> p = iDaoResultados.cliente();
-        modelo = (DefaultTableModel) vista.getTable().getModel();
-        Object[] cl = new Object[iDaoResultados.cliente().size()];
-        for (int i = 0; i < 20; i++) {
-            cl[0] = p.get(i).getNombre();
-            cl[1] = p.get(i).getCompetencias_ciudadanas();
-            cl[2] = p.get(i).getCompetencias_ciudadanas();
-            cl[3] = p.get(i).getCompetencias_ciudadanas();
-            cl[4] = p.get(i).getCompetencias_ciudadanas();
-            modelo.addRow(cl);
-        }
-        vista.getTable().setModel(modelo);
+        ct.btn_buscar(vista);
     }
 
     public static void limpiarRows() {
-        modelo = (DefaultTableModel) vista.getTable().getModel();
-        int coutRow = modelo.getRowCount();
-        for (int i = 0; i < coutRow; i++) {
-            modelo.removeRow(0);
-        }
-        vista.getTable().setModel(modelo);
+        ct.limpiarRows(vista);
     }
-
 }
