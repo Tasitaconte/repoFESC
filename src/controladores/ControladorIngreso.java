@@ -29,6 +29,7 @@ public class ControladorIngreso {
         ControladorApp.inicio();
     }
 
+    //funcion de ingreso a la aplicación 
     public static void ingreso() {
         
         String correo = v.getiCorreo().getText();
@@ -47,7 +48,8 @@ public class ControladorIngreso {
         }
     }
 
-    // pregunta a la base de datos si son correctos los datos mandados a los parametros
+    // pregunta a la base de datos si son correctos los datos mandados a los parametros y retorna un 
+    //dato booleano
     public static boolean validacion(String x, String y) {
         userModel u = new userModel(null, x, null, y);
         IDaoUsuario iDaoUsuario = new DaoUsuario();

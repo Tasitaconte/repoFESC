@@ -114,6 +114,7 @@ public class ControladorIntermedio {
             ct.btn_buscar(vista,getPruebaFiltro(),getProgramaFiltro());
         }
     }
+    
     //función para el controlador de limpieza de la filtración de datos
     public static void btn_limpiarRows() {
         ct.limpiarRows(vista);

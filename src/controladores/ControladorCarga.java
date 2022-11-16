@@ -13,6 +13,7 @@ public class ControladorCarga {
 
     private static final FileNameExtensionFilter filter = new FileNameExtensionFilter("CSV", "csv");
 
+    //funcion para confirmar los datos y almacenar lo recibido por el csv a la db en mysql
     public void btnCarga(String x, int y, int z) {
         IDaoCarga iDaoCarga = new DaoCarga();
         JFileChooser chooser = new JFileChooser();
@@ -25,6 +26,7 @@ public class ControladorCarga {
         }
     }
 
+    //funcion para la obtención del ruta del csv
     public String btn_obtencion(VistaCarga vista) {
         JFileChooser chooser = new JFileChooser();
         chooser.setFileFilter(filter);
