@@ -13,23 +13,25 @@ public class ControladorRegistro {
     static encoder mEnconder = new encoder();
     static VistaRegistro vista = new VistaRegistro();
 
+    //función para visualizar la vista registro
     public static void inicio() {
          libPersonal.styleWindows();
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
     }
-
+    //función para ocultar la vista registro
     public static void cerrar() {
         vista.setVisible(false);
     }
 
+    //Función del boton back de la app escritorio
     public static void btn_back() {
         ControladorRegistro.cerrar();
         ControladorApp.inicio();
     }
 
-    public static void btn_registrar() { //Logica de registro
-
+    //Función que captura los datos para el registro del usuario
+    public static void btn_registrar() { 
         String nameUser = vista.getRname().getText();
         String surnameUser = vista.getRApellido().getText();
         String emailUser = vista.getRemail().getText();
@@ -47,6 +49,7 @@ public class ControladorRegistro {
         }
     }
 
+    //función para limipiar los textFild
     public static void limpiar() {
         vista.getTpass().setText("");
         vista.getRemail().setText("");

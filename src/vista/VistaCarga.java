@@ -96,7 +96,15 @@ public class VistaCarga extends javax.swing.JFrame {
             new String [] {
                 "nombre", "p1", "p2", "p3", "p4", "p5", "p6", "GRAFICA"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(table);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 770, 350));

@@ -2,6 +2,7 @@ package controladores;
 
 import Dao.DaoResultados;
 import Dao.IDaoResultados;
+import java.awt.Button;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -13,10 +14,10 @@ public class ControladorTabla {
 
     static DefaultTableModel modelo;
 
+
+    // Esta función almacena los datos traidos de la db y los muestra en la jTable(table)
     public void btn_buscar(VistaCarga vista, int x, int y) {
-        
-        
-        
+        Button btnDatos = new Button( "Botón B1" );  
         JFileChooser chooser = new JFileChooser();
         IDaoResultados iDaoResultados = new DaoResultados();
         ArrayList<PruebaModel> p = iDaoResultados.cliente(x,y);
@@ -33,12 +34,14 @@ public class ControladorTabla {
                 cl[4] = p.get(i).getCompetencias_ciudadanas();
                 cl[5] = p.get(i).getIngles();
                 cl[6] = p.get(i).getNivel();
+                cl[7] = "Grafic";
                 modelo.addRow(cl);
             }
             vista.getTable().setModel(modelo);
         }
     }
 
+    //Esta función limpia la Jtable(Table) dejando los rows en 0
     public void limpiarRows(VistaCarga vista) {
         modelo = (DefaultTableModel) vista.getTable().getModel();
         int coutRow = modelo.getRowCount();
@@ -47,4 +50,11 @@ public class ControladorTabla {
         }
         vista.getTable().setModel(modelo);
     }
+    
+    //Funcion para evento del botón
+    public void botonDatos(){
+       Button btnDatos = new Button( "Botón B1" );            
+    }
+    
+    
 }
