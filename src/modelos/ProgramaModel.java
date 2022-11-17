@@ -1,7 +1,7 @@
 package modelos;
 
 public class ProgramaModel {
-
+    //Modelo de los datos de los programas
     private int idPrograma;
 
     private String namePrograma;

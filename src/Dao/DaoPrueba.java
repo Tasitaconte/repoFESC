@@ -12,7 +12,7 @@ public class DaoPrueba extends conexionSQL implements IDaoPrueba {
     public ArrayList<PruebaModel> nameTest() {
 
         ArrayList<PruebaModel> arrayListPrueba = new ArrayList<>();
-
+        //query para la db
         String sql = "SELECT * FROM " + env.T_TPRUEBA
                 + " ORDER BY " + env.ID_TPRUEBA + " ASC";
 
@@ -20,7 +20,7 @@ public class DaoPrueba extends conexionSQL implements IDaoPrueba {
             PreparedStatement ps = getConnection().prepareStatement(sql);
             ResultSet resultSet = ps.executeQuery();
 
-            while (resultSet.next()) {
+            while (resultSet.next()) { // captura de datos de la db
                 PruebaModel p = new PruebaModel();
                 p.setIdTest(resultSet.getInt(env.ID_TPRUEBA));
                 p.setNameTest(resultSet.getString(env.NAME_TPRUEBA));

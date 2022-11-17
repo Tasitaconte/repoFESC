@@ -1,7 +1,7 @@
 package modelos;
 
 public class userModel {
-
+    //Modelo del usuario para la traida de los datos y creacion del mismo
     private int id;
 
     private String userName;

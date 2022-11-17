@@ -37,14 +37,19 @@ public class DaoUsuario extends conexionSQL implements IDaoUsuario {
     }
 
     @Override
+
+    //funcion de validación para el ingreso del usuario
     public boolean Dingreso(userModel usuario) {
-        String sql = "SELECT " + env.T_USER + "." + env.EMAIL_USER + "," + env.T_USER + "." + env.PASSWORD_USER + " FROM " + env.T_USER + " WHERE user.email_user='" + usuario.getUserEmail() + "' and user.password_user='" + usuario.getUserPassword() + "'";
+        //query de la db
+        String sql = "SELECT *  FROM " + env.T_USER + " WHERE "+ env.EMAIL_USER+"='" 
+                + usuario.getUserEmail() +
+                "' and "+env.PASSWORD_USER+"='" + usuario.getUserPassword() + "'";
         try {
             PreparedStatement ps = getConnection().prepareStatement(sql);
             ResultSet resultSet = ps.executeQuery();
 
             if (resultSet.next()) {
-                return true;
+                return true; // en tal caso de que los datos sean correctos retornara un datos boolean
             }
         } catch (SQLException e) {
             System.out.println("Error al leer los datos " + e.getMessage());
@@ -55,6 +60,6 @@ public class DaoUsuario extends conexionSQL implements IDaoUsuario {
                 System.out.println("Error al cerrar la conexion " + e);
             }
         }
-        return false;
+        return false; // si no hay datos correcto retorna un dato boolean 
     }
 }

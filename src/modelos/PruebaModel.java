@@ -1,7 +1,7 @@
 package modelos;
 
 public class PruebaModel {
-
+    //Modelo para la traida de datos e insercción al programa
     private int idPrueba, idTest, idPrograma, comunicacion_escrita,
             razonamiento_cuantitativo,
             lectura_critica,

@@ -17,6 +17,7 @@ public class DaoPrograma extends conexionSQL implements IDaoPrograma {
 
         ArrayList<ProgramaModel> arrayListPrograma = new ArrayList<>();
 
+        //query de traida de dato de la db
         String sql = "SELECT * FROM " + env.T_PROGRAMA
                 + " ORDER BY " + env.ID_PROGRAMA + " ASC";
 
@@ -24,7 +25,7 @@ public class DaoPrograma extends conexionSQL implements IDaoPrograma {
             PreparedStatement ps = getConnection().prepareStatement(sql);
             ResultSet resultSet = ps.executeQuery();
 
-            while (resultSet.next()) {
+            while (resultSet.next()) {  //Captura de datos de la db
                 ProgramaModel p = new ProgramaModel();
                 p.setIdPrograma(resultSet.getInt(env.ID_PROGRAMA));
                 p.setNamePrograma(resultSet.getString(env.NAME_PROGRAMA));

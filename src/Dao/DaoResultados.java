@@ -11,6 +11,7 @@ public class DaoResultados extends conexionSQL implements IDaoResultados {
     @Override
     public ArrayList<PruebaModel> cliente(int x, int y) {
         ArrayList<PruebaModel> arrayListDatos = new ArrayList<>();
+        //query de la db
         String sql = "SELECT * FROM " + env.PRUEBA + " WHERE " + env.ID_TPRUEBA + "="
                 + x + " and " + env.ID_PROGRAMA + "="
                 + y;
@@ -19,7 +20,7 @@ public class DaoResultados extends conexionSQL implements IDaoResultados {
             PreparedStatement ps = getConnection().prepareStatement(sql);
             ResultSet resultSet = ps.executeQuery();
 
-            while (resultSet.next()) {
+            while (resultSet.next()) { // captura de datos
                 PruebaModel p = new PruebaModel();
                 p.setNombre(resultSet.getString(env.NOMBRE));
                 p.setComunicacion_escrita(resultSet.getInt(env.COMUNICACION_ESCRITA));

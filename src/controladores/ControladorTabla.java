@@ -14,13 +14,13 @@ public class ControladorTabla {
 
     static DefaultTableModel modelo;
 
-
     // Esta función almacena los datos traidos de la db y los muestra en la jTable(table)
     public void btn_buscar(VistaCarga vista, int x, int y) {
-        Button btnDatos = new Button( "Botón B1" );  
+        //vista.getTable().setDefaultRenderer(Object.class, new Render());
+        Button btnDatos = new Button("Botón B1");
         JFileChooser chooser = new JFileChooser();
         IDaoResultados iDaoResultados = new DaoResultados();
-        ArrayList<PruebaModel> p = iDaoResultados.cliente(x,y);
+        ArrayList<PruebaModel> p = iDaoResultados.cliente(x, y);
         modelo = (DefaultTableModel) vista.getTable().getModel();
         Object[] cl = new Object[p.size()];
         if (p.isEmpty()) {
@@ -34,7 +34,8 @@ public class ControladorTabla {
                 cl[4] = p.get(i).getCompetencias_ciudadanas();
                 cl[5] = p.get(i).getIngles();
                 cl[6] = p.get(i).getNivel();
-                cl[7] = "Grafic";
+                cl[7] = btnDatos;
+               // impError(p.get(i).getIdentificacion());
                 modelo.addRow(cl);
             }
             vista.getTable().setModel(modelo);
@@ -50,11 +51,14 @@ public class ControladorTabla {
         }
         vista.getTable().setModel(modelo);
     }
-    
+
     //Funcion para evento del botón
-    public void botonDatos(){
-       Button btnDatos = new Button( "Botón B1" );            
+    public void botonDatos() {
+        Button btnDatos = new Button("Botón B1");
     }
-    
-    
+
+    public void impError(String x) {
+        System.err.println(x);
+    }
+
 }

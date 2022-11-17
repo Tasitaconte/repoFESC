@@ -14,10 +14,13 @@ public class DaoCarga extends conexionSQL implements IDaoCarga {
     @Override
     public boolean insertarMySQL(List<PruebaModel> pruebas) {
         System.out.println("\nSE VAN A INSERTA: " + pruebas.size() + " REGISTROS\n");
+        //query de insercción de datos a la db
         String sql = " INSERT INTO " + env.PRUEBA + "(" + env.ID_TPRUEBA + "," + env.ID_PROGRAMA + "," + env.REGISTRO + "," + env.PERIODO + ","
                 + env.IDENTIFICACION + "," + env.NOMBRE + "," + env.COMUNICACION_ESCRITA + ","
                 + env.RAZONAMIENTO_CUANTITATIVO + "," + env.LECTURA_CRITICA + "," + env.COMPETENCIAS_CIUDADANAS + ","
                 + env.INGLES + "," + env.NIVEL + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        //agrandamiento de la query en tal caso de que sean demasiados datos a insertar
         if (pruebas.size() > 1) {
             for (int i = 2; i <= pruebas.size(); i++) {
                 sql += ", (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -25,7 +28,7 @@ public class DaoCarga extends conexionSQL implements IDaoCarga {
         }
         int parameterNumber = 1;
         try {
-            try ( PreparedStatement ps = getConnection().prepareStatement(sql)) {
+            try ( PreparedStatement ps = getConnection().prepareStatement(sql)) { // inserta los datos a la db
                 for (int i = 0; i < pruebas.size(); i++) {
                     ps.setInt(parameterNumber++, pruebas.get(i).getIdTest());
                     ps.setInt(parameterNumber++, pruebas.get(i).getIdPrograma());
@@ -58,13 +61,14 @@ public class DaoCarga extends conexionSQL implements IDaoCarga {
     }
 
     @Override
+    //Funcion para la abstracción de datos del csv
     public List<PruebaModel> importarcsv(String x, int y, int z) {
         List<PruebaModel> usuarios = new ArrayList<>();
         try {
-            CsvReader leerDatos = new CsvReader(x);
+            CsvReader leerDatos = new CsvReader(x); // lee la ruta donde se encuentra el csv
             leerDatos.readHeaders();
 
-            while (leerDatos.readRecord()) {
+            while (leerDatos.readRecord()) {//mapea los datos 
                 int idTest = y;
                 int idPrograma = z;
                 String registro = leerDatos.get(0);
@@ -83,14 +87,9 @@ public class DaoCarga extends conexionSQL implements IDaoCarga {
                         competencias_ciudadanas, ingles,
                         nivel));
             }
+
             leerDatos.close();
-            System.out.println("LISTA DE USUARIOS DEL CSV\n");
-            for (PruebaModel user : usuarios) {
-                System.out.println(
-                       "idTest"+ user.getIdTest()+"/ " + "idPrueba "+
-                        user.getIdPrograma()
-                );
-            }
+            
         } catch (FileNotFoundException e) {
         } catch (IOException e) {
         }
