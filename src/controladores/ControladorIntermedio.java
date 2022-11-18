@@ -116,7 +116,7 @@ public class ControladorIntermedio {
     }
     
     //función para el controlador de limpieza de la filtración de datos
-   /* public static void btn_limpiarRows() {
+   public static void btn_limpiarRows() {
         ct.limpiarRows(vista);
-    }*/
+    }
 }

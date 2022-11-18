@@ -5,26 +5,22 @@
 package controladores;
 
 import java.awt.Component;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
-/**
- *
- * @author poseidon
- */
-public class imgTable extends DefaultTableCellRenderer{
-        
+public class imgTable extends DefaultTableCellRenderer {
+
     @Override
     public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1) {
-       
-        if(o instanceof  JTable){
-            JLabel lb = (JLabel)o;
-            return  lb;
+
+        if (o instanceof JButton) {
+            JButton button = (JButton) o;
+            return button;
         }
-        
-        return super.getTableCellRendererComponent(jtable, o, bln, bln1, i, i1); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+
+        return super.getTableCellRendererComponent(jtable, o, bln, bln1, i, i1);
     }
 
-    
 }
