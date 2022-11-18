@@ -15,7 +15,7 @@ public class ControladorIngreso {
     static encoder mEnconder = new encoder();
 
     public static void inicio() {
-        libPersonal.styleWindows();
+      //  libPersonal.styleWindows();
         v.setLocationRelativeTo(null);
         v.setVisible(true);
     }

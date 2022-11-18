@@ -8,7 +8,7 @@ public class ControladorApp {
     static VistaInicio vista = new VistaInicio();
 
     public static void inicio() {
-        libPersonal.styleWindows();
+  //      libPersonal.styleWindows();
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
 

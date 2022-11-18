@@ -15,7 +15,7 @@ public class ControladorRegistro {
 
     //función para visualizar la vista registro
     public static void inicio() {
-         libPersonal.styleWindows();
+      //   libPersonal.styleWindows();
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
     }
