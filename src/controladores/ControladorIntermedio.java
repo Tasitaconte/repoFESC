@@ -1,15 +1,8 @@
 package controladores;
 
-import Dao.DaoPrograma;
-import Dao.DaoPrueba;
-import Dao.IDaoPrueba;
-import Dao.IDaoPrograma;
-import clases.libPersonal;
+import env.datosPruebas;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import modelos.ProgramaModel;
-import modelos.PruebaModel;
 import vista.VistaCarga;
 
 public class ControladorIntermedio {
@@ -18,16 +11,14 @@ public class ControladorIntermedio {
     static ControladorCarga cC = new ControladorCarga();
     static VistaCarga vista = new VistaCarga();
 
-    //función para visualizar la vista de carga y muestra de datos
     public static void inicio() {
-   //     libPersonal.styleWindows();
-        vista.setLocationRelativeTo(null);
         vista.setVisible(true);
         viewAllDItems();
     }
+
     //función para ocultar la vista de carga y muestra de datos
     public static void cerrar() {
-        vista.setVisible(false);
+        vista.dispose();
     }
 
     //función  para inicializar los datos traidos de la db
@@ -40,46 +31,45 @@ public class ControladorIntermedio {
 
     //Funcion para traer y colocar los datos en los items de prueba
     public static void setPrueba() {
-        IDaoPrueba iDaoPrueba = new DaoPrueba();
         vista.getPruebaSeleccion().removeAllItems();
         vista.getPruebaSeleccion().addItem("Elija tipo de prueba");
-        for (PruebaModel p : iDaoPrueba.nameTest()) {
-            vista.getPruebaSeleccion().addItem(p.getNameTest());
+        for (String prueba : datosPruebas.PRUEBAS) {
+            vista.getPruebaSeleccion().addItem(prueba);
         }
     }
+
     //Funcion para traer y colocar los datos en los items de programa
     public static void setPrograma() {
-        IDaoPrograma iDaoPrograma = new DaoPrograma();
         vista.getPruebaPrograma().removeAllItems();
         vista.getPruebaPrograma().addItem("Elija el programa");
-        for (ProgramaModel p : iDaoPrograma.namePrograma()) {
-            vista.getPruebaPrograma().addItem(p.getNamePrograma());
+        for (String programa : datosPruebas.PROGRAMAS) {
+            vista.getPruebaPrograma().addItem(programa);
         }
     }
+
     //captura de la seleccion del item prueba
     public static int getPrueba() {
         return vista.getPruebaSeleccion().getSelectedIndex();
     }
+
     //captura de la seleccion del item programa
     public static int getPrograma() {
         return vista.getPruebaPrograma().getSelectedIndex();
     }
 
     public static void setPruebaFiltro() {
-        IDaoPrueba iDaoPrueba = new DaoPrueba();
         vista.getFiltroPrueba().removeAllItems();
         vista.getFiltroPrueba().addItem("Elija tipo de prueba");
-        for (PruebaModel p : iDaoPrueba.nameTest()) {
-            vista.getFiltroPrueba().addItem(p.getNameTest());
+        for (String prueba : datosPruebas.PRUEBAS) {
+            vista.getFiltroPrueba().addItem(prueba);
         }
     }
 
     public static void setProgramaFiltro() {
-        IDaoPrograma iDaoPrograma = new DaoPrograma();
         vista.getFiltroPrograma().removeAllItems();
         vista.getFiltroPrograma().addItem("Elija el programa");
-        for (ProgramaModel p : iDaoPrograma.namePrograma()) {
-            vista.getFiltroPrograma().addItem(p.getNamePrograma());
+        for (String programa : datosPruebas.PROGRAMAS) {
+            vista.getFiltroPrograma().addItem(programa);
         }
     }
 
@@ -90,11 +80,12 @@ public class ControladorIntermedio {
     public static int getProgramaFiltro() {
         return vista.getFiltroPrograma().getSelectedIndex();
     }
+
     //funcion para resetear los items seleccionados
     public static void limpiar() {
         vista.getPruebaSeleccion().setSelectedIndex(0);
         vista.getPruebaPrograma().setSelectedIndex(0);
-    }  
+    }
 
     //Funcion de controlador para cargar los datos obtenidos por el csv
     public static void btnCargar() {
@@ -108,15 +99,15 @@ public class ControladorIntermedio {
 
     //función para el controlador para la filtración de datos
     public static void btn_buscar() {
-        if(getPruebaFiltro()== 0 && getProgramaFiltro()== 0){
+        if (getPruebaFiltro() == 0 && getProgramaFiltro() == 0) {
             JOptionPane.showMessageDialog(vista, "Seleccione los datos para filtrar");
-        }else{
-            ct.btn_buscar(vista,getPruebaFiltro(),getProgramaFiltro());
+        } else {
+            ct.btn_buscar(vista, getPruebaFiltro(), getProgramaFiltro());
         }
     }
-    
+
     //función para el controlador de limpieza de la filtración de datos
-   public static void btn_limpiarRows() {
+    public static void btn_limpiarRows() {
         ct.limpiarRows(vista);
     }
 }

@@ -40,7 +40,6 @@ public class ControladorTabla extends JFrame {
                 cl[5] = p.get(i).getIngles();
                 cl[6] = p.get(i).getNivel();
                 cl[7] = boton;
-
                 modelo.addRow(cl);
             }
             vista.getTable().setModel(modelo);
@@ -58,8 +57,4 @@ public class ControladorTabla extends JFrame {
     }
 
     //Funcion para evento del botón
-    public void botonDatos() {
-        Button btnDatos = new Button("Botón B1");
-    }
-
 }

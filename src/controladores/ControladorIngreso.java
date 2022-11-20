@@ -3,7 +3,6 @@ package controladores;
 import Dao.DaoUsuario;
 import Dao.IDaoUsuario;
 import clases.encoder;
-import clases.libPersonal;
 import static controladores.ControladorRegistro.vista;
 import javax.swing.JOptionPane;
 import modelos.userModel;
@@ -15,13 +14,11 @@ public class ControladorIngreso {
     static encoder mEnconder = new encoder();
 
     public static void inicio() {
-      //  libPersonal.styleWindows();
-        v.setLocationRelativeTo(null);
         v.setVisible(true);
     }
 
     public static void cerrar() {
-        v.setVisible(false);
+        v.dispose();
     }
 
     public static void btn_back() {
@@ -31,7 +28,7 @@ public class ControladorIngreso {
 
     //funcion de ingreso a la aplicación 
     public static void ingreso() {
-        
+
         String correo = v.getiCorreo().getText();
         String Pass = mEnconder.ecnode(v.getiPass().getText());
 

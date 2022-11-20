@@ -1,15 +1,25 @@
 package vista;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
 public class VistaInicio extends javax.swing.JFrame {
 
     public VistaInicio() {
+        nimbus();
         initComponents();
+        setLocationRelativeTo(null);
         setTitle("INICIO");
+    }
+
+    public void nimbus() {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(VistaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")

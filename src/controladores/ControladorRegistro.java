@@ -4,7 +4,6 @@ import Dao.DaoUsuario;
 import Dao.IDaoUsuario;
 import javax.swing.JOptionPane;
 import clases.encoder;
-import clases.libPersonal;
 import modelos.userModel;
 import vista.VistaRegistro;
 
@@ -15,13 +14,12 @@ public class ControladorRegistro {
 
     //función para visualizar la vista registro
     public static void inicio() {
-      //   libPersonal.styleWindows();
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
     }
     //función para ocultar la vista registro
     public static void cerrar() {
-        vista.setVisible(false);
+        vista.dispose();
     }
 
     //Función del boton back de la app escritorio
