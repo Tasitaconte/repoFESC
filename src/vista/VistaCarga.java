@@ -9,7 +9,10 @@ public class VistaCarga extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
-
+    public static void set(){
+        
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -74,7 +77,7 @@ public class VistaCarga extends javax.swing.JFrame {
                 .addComponent(pruebaSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btCarga)
-                .addContainerGap())
+                .addGap(326, 326, 326))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
